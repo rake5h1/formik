@@ -4,7 +4,7 @@ title: <Field />
 custom_edit_url: https://github.com/jaredpalmer/formik/edit/master/docs/api/field.md
 ---
 
-`<Field />` will automagically hook up inputs to Formik. It uses the `name`
+`<Field />` will automatically hook up inputs to Formik. It uses the `name`
 attribute to match up with Formik state. `<Field />` will default to an HTML
 `<input />` element.
 
@@ -17,7 +17,7 @@ There are different ways to render things with `<Field>`.
 - ~~`<Field render>`~~ _deprecated in 2.x. Using these will log warning_
 - `<Field component>`
 
-`as` can either be a React component or the name of an HTML element to render. Formik will automagically inject `onChange`, `onBlur`, `name`, and `value` props of the field designated by the `name` prop to the (custom) component.
+`as` can either be a React component or the name of an HTML element to render. Formik will automatically inject `onChange`, `onBlur`, `name`, and `value` props of the field designated by the `name` prop to the (custom) component.
 
 `children` can either be an array of elements (e.g. `<option>` in the case of `<Field as="select">`) or a callback function (a.k.a render prop). The render props are an object containing:
 
