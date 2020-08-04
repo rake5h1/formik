@@ -139,6 +139,7 @@ const SignupForm = () => {
     </form>
   );
 };
+export default SignupForm
 ```
 
 We pass our form's `initialValues` and a submission function (`onSubmit`) to the `useFormik()` hook. The hook then returns to us a goodie bag of form state and helpers in a variable we are calling `formik`. In the goodie bag, there are a bunch of helper methods, but for now, the ones we care about are as follows:
@@ -200,6 +201,7 @@ const SignupForm = () => {
     </form>
   );
 };
+export default SignupForm
 ```
 
 If you look carefully at our new code, you'll notice some patterns and symmetry _forming_.
@@ -306,6 +308,7 @@ const SignupForm = () => {
     </form>
   );
 };
+export default SignupForm
 ```
 
 `formik.errors` is populated via the custom validation function. By default, Formik will validate after each keystroke (change event), each input's blur event, as well as prior to submission. It will only proceed with executing the `onSubmit` function we passed to `useFormik()` if there are no errors (i.e. if our validation function returned `{}`).
@@ -393,6 +396,7 @@ const SignupForm = () => {
     </form>
   );
 };
+export default SignupForm
 ```
 
 Almost there! Now that we're tracking `touched`, we can now change our error message render logic to _only_ show a field's error message if it exists _and_ if our user has visited a given field.
@@ -478,6 +482,7 @@ const SignupForm = () => {
     </form>
   );
 };
+export default SignupForm
 ```
 
 ### Schema Validation with Yup
@@ -565,6 +570,7 @@ const SignupForm = () => {
     </form>
   );
 };
+export default SignupForm
 ```
 
 Again, Yup is 100% optional. However, we suggest giving it a try. As you can see above, we expressed the exact same validation function with just 10 lines of code instead of 30. One of Formik's core design principles is to help you stay organized. Yup definitely helps a lot with this--schemas are extremely expressive, intuitive (since they mirror your values), and reusable. Whether or not you use Yup, it is highly recommended that you share commonly used validation methods across your application. This will ensure that common fields (e.g. email, street addresses, usernames, phone numbers, etc.) are validated consistently and result in a better user experience.
@@ -623,6 +629,7 @@ const SignupForm = () => {
     </form>
   );
 };
+export default SignupForm
 ```
 
 ### Leveraging React Context
@@ -705,6 +712,7 @@ const SignupForm = () => {
     </Formik>
   );
 };
+export default SignupForm
 ```
 
 As you can see above, we swapped out `useFormik()` hook and replaced it with the `<Formik>` component. The `<Formik>` accepts a function as its children (a.k.a. a render prop). Its argument is the _exact_ same object returned by `useFormik()` (in fact, `<Formik>` calls `useFormik()` internally!!). Thus, our form works the same as before, except now we can use new components to express ourselves in a more concise manner.
@@ -751,6 +759,7 @@ const SignupForm = () => {
     </Formik>
   );
 };
+export default SignupForm
 ```
 
 The `<Field>` component by default will render an `<input>` component that given a `name` prop will implicitly grab the respective `onChange`, `onBlur`, `value` props and pass them to the element as well as any props you pass to it. However, since not everything is an input, `<Field>` also accepts a few other props to let you render whatever you want. Some examples..
@@ -928,6 +937,7 @@ const SignupForm = () => {
     </>
   );
 };
+export default SignupForm
 ```
 
 As you can see above, `useField()` gives us the ability to connect any kind input of React component to Formik as if it were a `<Field>` + `<ErrorMessage>`. We can use it to build a group of reusable inputs that fit our needs.
